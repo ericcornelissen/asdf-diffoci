@@ -1,0 +1,22 @@
+# Configuration file for EditorConfig (https://editorconfig.org)
+
+root=true
+
+[*]
+charset=utf-8
+indent_size=2
+indent_style=tab
+insert_final_newline=true
+max_line_length=80
+trim_trailing_whitespace=true
+
+[{*.md,LICENSE}]
+indent_style=space
+indent_size=unset
+
+[*.yml]
+indent_style=space
+indent_size=2
+
+[{Containerfile.dev,Makefile}]
+indent_style=tab

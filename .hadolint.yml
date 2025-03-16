@@ -1,0 +1,18 @@
+# Configuration file for hadolint (https://github.com/hadolint/hadolint)
+
+failure-threshold: style
+format: tty
+
+override:
+  error: ~
+  warning: ~
+  info: ~
+  style: ~
+ignored:
+  - DL3018
+
+label-schema: ~
+strict-labels: true
+
+trustedRegistries:
+  - docker.io

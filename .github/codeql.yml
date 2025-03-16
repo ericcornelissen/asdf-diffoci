@@ -1,0 +1,6 @@
+# Configuration file for CodeQL (https://codeql.github.com/)
+
+name: asdf-diffoci CodeQL config
+
+queries:
+  - uses: security-extended
