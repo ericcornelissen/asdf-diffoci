@@ -16,7 +16,7 @@ asdf plugin add diffoci https://github.com/ericcornelissen/asdf-diffoci
 ## Usage
 
 ```sh
-asdf install diffoci 1.29.0
+asdf install diffoci 0.1.6
 ```
 
 ## Prerequisites
