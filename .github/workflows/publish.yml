@@ -18,14 +18,10 @@ jobs:
       with:
         persist-credentials: false
     - name: Get version
-      uses: actions/github-script@60a0d83039c74a4aee543508d2ffcb1c3799cdea # v7.0.1
       id: version
-      with:
-        result-encoding: string
-        script: |
-          const ref = context.ref
-          const tag = ref.replace(/^refs\/tags\//, "")
-          return tag
+      shell: bash
+      run: |
+        echo "result=${GITHUB_REF#refs/tags/}" >>"${GITHUB_OUTPUT}"
     - name: Create GitHub Release
       uses: ncipollo/release-action@440c8c1cb0ed28b9f43e4d1d670870f059653174 # v1.16.0
       with:
