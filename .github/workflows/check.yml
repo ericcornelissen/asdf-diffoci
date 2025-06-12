@@ -120,3 +120,4 @@ jobs:
       with:
         command: diffoci --help
         version: 0.1.6
+        gitref: ${{ github.head_ref || github.ref_name }}
