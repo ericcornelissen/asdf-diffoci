@@ -1,7 +1,7 @@
 # SPDX-License-Identifier: MIT-0
 
 ALL_SCRIPTS:=./bin/* ./lib/*
-SHELLCHECK_OPTS:='--enable=avoid-nullary-conditions --enable=deprecate-which --enable=quote-safe-variables --enable=require-variable-braces'
+SHELLCHECK_OPTS:='--enable=avoid-nullary-conditions --enable=deprecate-which --enable=quote-safe-variables --enable=require-variable-braces --enable=useless-use-of-cat'
 
 .PHONY: default
 default: help
