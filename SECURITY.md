@@ -46,6 +46,16 @@ Try to include as many of the following items as possible in a security report:
 
 [cwe]: https://cwe.mitre.org/
 
+### Threat Model
+
+The plugin considers the system on which it is running, `asdf`, GitHub, and
+`diffoci` to be trusted. Any violation of confidentiality, integrity, or
+availability is considered a security issue.
+
+The project considers the GitHub infrastructure and all project maintainers to
+be trusted. Any action that is performed on the repository by any other GitHub
+user is considered untrusted.
+
 ## Advisories
 
 > **Note**: Advisories will be created only for vulnerabilities present in
