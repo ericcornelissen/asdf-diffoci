@@ -53,7 +53,9 @@ lint-ci: $(ASDF) ## Lint CI workflow files
 
 lint-container: $(ASDF) dev-img ## Lint the Containerfile
 	@hadolint Containerfile.dev
-	@[ -z "$$ASDF_DIFFOCI_CONTAINER" ] && dockle asdf-diffoci-dev-img || :
+	@if [ -z "$$ASDF_DIFFOCI_CONTAINER" ]; then \
+		dockle --exit-code 1 --exit-level info asdf-diffoci-dev-img; \
+	fi
 
 lint-sh: ## Lint .sh files
 	@SHELLCHECK_OPTS=$(SHELLCHECK_OPTS) \
