@@ -1,0 +1,16 @@
+# Configuration file for Dockle (https://github.com/goodwithtech/dockle)
+
+## root is fine in a dev image
+CIS-DI-0001
+
+## trust is unnecessary for local image
+CIS-DI-0005
+
+## dev image does not need a HEALTHCHECK
+CIS-DI-0006
+
+## latest is fine for a local image
+DKL-DI-0006
+
+## too many false positives
+DKL-LI-0003

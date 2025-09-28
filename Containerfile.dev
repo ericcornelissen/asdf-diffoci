@@ -2,6 +2,8 @@
 
 FROM docker.io/golang:1.24.2-alpine3.21
 
+ENV ASDF_DIFFOCI_CONTAINER=1
+
 RUN apk add --no-cache \
 	# prerequisites
 	bash curl git make \
@@ -17,6 +19,7 @@ COPY .tool-versions .
 RUN go install github.com/asdf-vm/asdf/cmd/asdf@v0.16.2 \
 	&& echo 'export PATH="/.asdf/shims:$''PATH"' > ~/.bashrc \
 	&& asdf plugin add actionlint \
+	&& asdf plugin add dockle \
 	&& asdf plugin add hadolint \
 	&& asdf plugin add shellcheck \
 	&& asdf plugin add shfmt \

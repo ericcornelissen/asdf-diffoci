@@ -22,10 +22,12 @@ dev-env: dev-img ## Run an ephemeral development environment container
 		asdf-diffoci-dev-img
 
 dev-img: ## Build a development environment image
+ifndef ASDF_DIFFOCI_CONTAINER
 	@docker build \
 		--tag asdf-diffoci-dev-img \
 		--file Containerfile.dev \
 		.
+endif
 
 .PHONY: format format-check
 format: ## Format the source code
@@ -49,8 +51,9 @@ lint-ci: $(ASDF) ## Lint CI workflow files
 	@SHELLCHECK_OPTS=$(SHELLCHECK_OPTS) \
 		actionlint
 
-lint-container: $(ASDF) ## Lint the Containerfile
+lint-container: $(ASDF) dev-img ## Lint the Containerfile
 	@hadolint Containerfile.dev
+	@[ -z "$$ASDF_DIFFOCI_CONTAINER" ] && dockle asdf-diffoci-dev-img || :
 
 lint-sh: ## Lint .sh files
 	@SHELLCHECK_OPTS=$(SHELLCHECK_OPTS) \
