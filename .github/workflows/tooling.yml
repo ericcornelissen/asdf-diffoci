@@ -25,6 +25,7 @@ jobs:
       with:
         commit-message: Bump {{updated-tools}} from {{updated-old-versions}} to {{updated-new-versions}}
         labels: dependencies
+        install-tools: false
         max: 1
         pr-body: |
           Bumps {{updated-tools}} from {{updated-old-versions}} to {{updated-new-versions}}.
