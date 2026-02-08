@@ -25,6 +25,6 @@ this file (using v1.0.1 as an example):
    > the remaining steps.
 
 1. Create a [GitHub Release] for the git tag of the new release. The release
-   title and text should both be "Release {_version_}"(e.g. "Release v1.0.1").
+   title and text should both be "Release {_version_}" (e.g. "Release v1.0.1").
 
 [github release]: https://docs.github.com/en/repositories/releasing-projects-on-github/managing-releases-in-a-repository

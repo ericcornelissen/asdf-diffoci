@@ -26,8 +26,8 @@ To be able to use this plugin you need at least the following:
 - `bash`
 - `curl`
 - `git`
-- Unix utilities: `chmod`, `cp`, `cut`, `grep`, `mkdir`, `printf`, `rm`, `sed`,
-  `test`, and `uname`
+- Unix utilities: `awk`, `chmod`, `cp`, `cut`, `grep`, `mkdir`, `printf`, `rm`,
+  `sed`, `test`, `uname`, and `xargs`
 
 ## License
 
