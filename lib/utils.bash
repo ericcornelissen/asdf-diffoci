@@ -2,9 +2,13 @@
 
 set -euo pipefail
 
-GH_REPO="https://github.com/reproducible-containers/diffoci"
-TOOL_NAME="diffoci"
-TOOL_TEST="diffoci -version"
+REPO_NAME='reproducible-containers/diffoci'
+TOOL_NAME='diffoci'
+TOOL_TEST='diffoci -version'
+
+GH_REPO="https://github.com/${REPO_NAME}"
+GH_API_REPO="https://api.github.com/repos/${REPO_NAME}"
+GH_API_VERSION='2026-03-10'
 
 fail() {
 	echo -e "asdf-${TOOL_NAME}: $*"
@@ -59,18 +63,27 @@ list_all_versions() {
 }
 
 download_release() {
-	local version filename system arch url
+	local version filename system arch download_url metadata_url metadata immutable
 
 	version="$1"
 	filename="$2"
 
 	system="$(_system)" || fail 'Could not get the kernel name'
 	arch="$(_arch)" || fail 'Unknown machine (hardware) type'
-	url="${GH_REPO}/releases/download/v${version}/diffoci-v${version}.${system}-${arch}"
+	download_url="${GH_REPO}/releases/download/v${version}/diffoci-v${version}.${system}-${arch}"
 
 	echo "* Downloading ${TOOL_NAME} release ${version}..."
-	curl "${curl_opts[@]}" -o "${filename}" -C - "${url}" || fail "Could not download ${url}"
+	curl "${curl_opts[@]}" -o "${filename}" -C - "${download_url}" || fail "Could not download ${download_url}"
 	chmod +x "${filename}"
+
+	metadata_url="${GH_API_REPO}/releases/tags/v${version}"
+	metadata=$(curl "${curl_opts[@]}" -H 'Accept: application/vnd.github+json' -H "X-GitHub-Api-Version: ${GH_API_VERSION}" "${metadata_url}" 2>/dev/null || true)
+	if [[ -n ${metadata} ]]; then
+		immutable=$(echo "${metadata}" | grep '"immutable": true,' || true)
+		if [[ -z ${immutable} ]]; then
+			echo "! Release ${version} of ${TOOL_NAME} is NOT an 'Immutable release'"
+		fi
+	fi
 }
 
 install_version() {
