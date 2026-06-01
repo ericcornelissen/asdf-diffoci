@@ -26,10 +26,9 @@ project, either:
 
 Please do not open a regular issue or Pull Request in the public repository.
 
-If a security issue only affects an unsupported version of the project, or the
-latest version of a supported version range isn't affected, please report it
-publicly. For example, as a regular issue in the public repository. If in doubt,
-report the issue privately.
+If a security issue only affects an unsupported version of the project, please
+report it publicly. For example, as a regular issue in the public repository.
+If in doubt, report the issue privately.
 
 [new github advisory]: https://github.com/ericcornelissen/asdf-diffoci/security/advisories/new
 [ericornelissen+security@gmail.com]: mailto:ericornelissen+security@gmail.com?subject=SECURITY%20%28asdf-diffoci%29
