@@ -34,6 +34,22 @@ To be able to contribute you need the following tooling:
 - (Optional) [ShellCheck] (see `.tool-versions` for preferred version);
 - (Optional) [shfmt] (see `.tool-versions` for preferred version);
 
+## AI Use Policy
+
+This project accepts contributions made with the help of AI, but the commit
+author must always be a person. All contributions made with the help of AI
+should include an `Assisted-by` tag at the end of the commit message. For
+example:
+
+```text
+Assisted-by: Claude Sonnet 4.6
+```
+
+The tag's value should include at least the model version and may include an
+agent name.
+
+AI tools must not be the commit author or listed in a `Co-authored-by` tag.
+
 [actionlint]: https://github.com/rhysd/actionlint
 [asdf]: https://asdf-vm.com/
 [docker]: https://www.docker.com/
