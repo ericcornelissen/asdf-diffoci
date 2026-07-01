@@ -14,7 +14,7 @@ ENV ASDF_DATA_DIR="/.asdf"
 WORKDIR /setup
 COPY .tool-versions .
 
-RUN go install github.com/asdf-vm/asdf/cmd/asdf@v0.16.2 \
+RUN go install github.com/asdf-vm/asdf/cmd/asdf@v0.19.0 \
 	&& echo 'export PATH="/.asdf/shims:$''PATH"' > ~/.bashrc \
 	&& asdf plugin add actionlint \
 	&& asdf plugin add hadolint \
