@@ -14,12 +14,6 @@ jobs:
       contents: write # To push a commit
       pull-requests: write # To open a Pull Request
     steps:
-    - name: Create token to create Pull Request
-      uses: actions/create-github-app-token@1b10c78c7865c340bc4f6099eb2f838309f1e8c3 # v3.1.1
-      id: automation-token
-      with:
-        client-id: ${{ secrets.AUTOMATION_ID }}
-        private-key: ${{ secrets.AUTOMATION_PRIVATE_KEY }}
     - name: Update tooling
       uses: ericcornelissen/tool-versions-update-action/pr@e42ba48806082845f434a42b706bfe3f9a807806 # v2.2.2
       with:
@@ -36,4 +30,3 @@ jobs:
 
           [tool-versions-update-action]: https://github.com/ericcornelissen/tool-versions-update-action
         pr-title: Bump {{updated-tools}} from {{updated-old-versions}} to {{updated-new-versions}}
-        token: ${{ steps.automation-token.outputs.token }}
